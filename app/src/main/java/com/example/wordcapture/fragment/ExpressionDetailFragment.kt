@@ -49,7 +49,7 @@ class ExpressionDetailFragment : Fragment() {
 
                 title.text = expression.original
                 description.text = expression.translation
-                imageView.setImageURI(Uri.parse(expression.imageFilename))
+                imageView.setImageURI(Uri.parse(expression.thumbnailPath))
             }
         }
     }

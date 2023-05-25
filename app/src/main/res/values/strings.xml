@@ -34,5 +34,7 @@ Integer in convallis eros. Integer erat odio, rhoncus id mauris a, interdum euis
     <string name="default_language_key">default_language</string>
     <string name="default_language_message">Pick default language</string>
     <string name="default_language_title">Language</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

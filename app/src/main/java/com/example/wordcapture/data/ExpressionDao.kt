@@ -3,6 +3,7 @@ package com.example.wordcapture.data
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface ExpressionDao {
@@ -15,5 +16,8 @@ interface ExpressionDao {
 
     @Insert
     fun insert(expression: Expression)
+
+    @Update
+    fun update(expression: Expression)
 
 }

@@ -11,6 +11,7 @@ data class Expression(
     @ColumnInfo val original: String,
     @ColumnInfo val translation: String?,
     @ColumnInfo val time: Date,
-    @ColumnInfo val language: String?,
-    @ColumnInfo val imageFilename: String?
+    @ColumnInfo val language: String,
+    @ColumnInfo val imagePath: String?,
+    @ColumnInfo val thumbnailPath: String?
 )

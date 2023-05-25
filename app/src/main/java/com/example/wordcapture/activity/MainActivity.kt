@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.ShareActionProvider
@@ -32,14 +32,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
+    ExpressionsFragment.ExpressionUpdatedListener {
     private var shareActionProvider: ShareActionProvider? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
 
         val pagerAdapter = SectionsPagerAdapter(supportFragmentManager, applicationContext)
         val pager = findViewById<View>(R.id.pager) as ViewPager
@@ -51,16 +50,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
-        val toggle = ActionBarDrawerToggle(
-            this,
-            drawer,
-            toolbar,
-            R.string.nav_open_drawer,
-            R.string.nav_close_drawer
-        )
-        drawer.addDrawerListener(toggle)
-        toggle.syncState()
+//        val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+//        val toggle = ActionBarDrawerToggle(
+//            this,
+//            drawer,
+//            toolbar,
+//            R.string.nav_open_drawer,
+//            R.string.nav_close_drawer
+//        )
+//        drawer.addDrawerListener(toggle)
+//        toggle.syncState()
 
         val fab = findViewById<View>(R.id.fab)
         fab.setOnClickListener{ view -> fabClick(view) }
@@ -91,13 +90,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onCreateOptionsMenu(menu:Menu): Boolean {
+        return true
+
+        //TODO do I want options menu?
         menuInflater.inflate(R.menu.menu_main, menu)
-
         val menuItem = menu.findItem(R.id.action_share);
-
         shareActionProvider = MenuItemCompat.getActionProvider(menuItem) as ShareActionProvider?
         setShareActionIntent("Unfulfillable");
-
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -126,35 +125,50 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         resultLauncherNewExpression.launch(intent)
     }
 
-    private val resultLauncherNewExpression = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+
+    // TODO hack works, but very slow
+    private fun updateExpressionsList(result: ActivityResult){
         if (result.resultCode == Activity.RESULT_OK ) {
-            val inserted = result.data?.extras?.getBoolean(NewExpressionActivity.NEW_EXPRESSION_INSERTED, false)
+            val inserted = result.data?.extras?.getBoolean(ViewExpressionFragment.EXPRESSION_INSERTED, false)
+            val updated = result.data?.extras?.getBoolean(ViewExpressionFragment.EXPRESSION_UPDATED, false)
 
-            if(inserted != null && inserted != false){
-
-
-                // TODO hack works, but very slow
+            if ( (inserted != null && inserted == true) || (updated != null && updated == true)) {
                 val itemRecycler = findViewById<RecyclerView>(R.id.expressions_recycler)
                 val adapter = itemRecycler.adapter!! as CaptionedImagesAdapter
+
                 CoroutineScope(Dispatchers.IO).launch {
                     val expressions = AppDatabase.get(applicationContext).expressionDao().getAll()
 
                     runOnUiThread {
                         adapter.expressions = expressions
                         adapter.notifyDataSetChanged()
+
+//                        if(inserted != null && inserted == true){
+//                            adapter.notifyItemInserted(expressions.size-1)
+//                        }
+//                        else if(updated != null && updated == true){
+//                            val position = result.data?.extras?.getInt(ViewExpressionFragment.EXPRESSION_UPDATED_POS)
+//
+//                        }
+
                     }
 
                 }
 
-
                 // TODO doesnt work because adapter doesnt have acces with databae
 //                val noItems = itemRecycler.adapter!!.itemCount
 //                itemRecycler.adapter!!.notifyItemInserted(noItems)
-
             }
-
         }
+
     }
+
+    override fun expressionUpdated(result: ActivityResult) {
+        updateExpressionsList(result)
+    }
+
+    val resultLauncherNewExpression = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result -> updateExpressionsList(result) }
+
 
     private class SectionsPagerAdapter(
         fm: FragmentManager?,
@@ -162,7 +176,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     ) : FragmentPagerAdapter(fm!!) {
 
         override fun getCount(): Int {
-            return 2
+            return 1
         }
         override fun getItem(position: Int): Fragment {
             when (position) {
@@ -213,4 +227,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             onBackPressedDispatcher.onBackPressed()
         }
     }
+
+
 }

@@ -2,7 +2,6 @@ package com.example.wordcapture.domain
 
 import android.net.Uri
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -35,12 +34,20 @@ class CaptionedImagesAdapter(var expressions: List<Expression>) :
         val cardView = holder.cardView
         val expression = expressions[position]
 
-        val imageView = cardView.findViewById<ImageView>(R.id.info_image)
-        imageView.setImageURI(Uri.parse(expression.imageFilename))
-        imageView.contentDescription = expression.original
+        if(expression.thumbnailPath != null){
+            val imageView = cardView.findViewById<ImageView>(R.id.expression_image)
+            imageView.setImageURI(Uri.parse(expression.thumbnailPath))
+            imageView.contentDescription = expression.original
+        }
 
-        val textView = cardView.findViewById<View>(R.id.info_text) as TextView
+        if(expression.translation != null){
+            val translationView = cardView.findViewById<TextView>(R.id.expression_translation)
+            translationView.text = expression.translation
+        }
+
+        val textView = cardView.findViewById<TextView>(R.id.expression_original)
         textView.text = expression.original
+
 
         cardView.setOnClickListener { listener?.onClick(expression.id) }
     }

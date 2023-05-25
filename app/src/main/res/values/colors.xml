@@ -19,4 +19,6 @@
     <color name="cheese">#EFC323</color>
     <color name="burger">#784829</color>
     <color name="ketchup">#E33030</color>
+
+    <color name="grey">#AAAAAA</color>
 </resources>
