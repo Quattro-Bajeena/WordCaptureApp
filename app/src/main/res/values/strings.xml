@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Word Capture</string>
+    <string name="stopper_placeholder">20s</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="reset">Reset</string>
+    <string name="action_activity_title">Action Activity</string>
+    <string name="action_title">Tytuł Akcji</string>
+    <string name="action_share">Share</string>
+    <string name="title_top">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id sem ut purus imperdiet laoreet. In molestie, arcu aliquam pharetra consectetur, sapien dolor volutpat magna, vitae consequat eros leo sed lacus. Morbi ullamcorper est in leo sodales pharetra. Pellentesque non orci porttitor, viverra magna non, convallis dolor. Etiam in felis nec ipsum rutrum porttitor eu sed orci. Donec ligula sem, congue vitae ante in, volutpat euismod ex. Quisque eget nulla nec nibh lacinia commodo a at quam. Aliquam laoreet neque nibh, quis lobortis augue mollis at. Etiam quis ornare libero. Donec consequat cursus tortor, in imperdiet lacus egestas interdum. Nam vehicula, est mollis varius placerat, magna augue tempus velit, et faucibus ex nulla quis purus. In scelerisque enim sed venenatis aliquet. Curabitur lobortis aliquet ligula, et dictum mauris volutpat et.
+Fusce lorem tellus, dictum et lacus ut, ullamcorper pellentesque lectus. Duis at egestas nunc. Praesent porttitor enim nec est ullamcorper, eget vestibulum eros molestie. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris maximus nisi at tellus placerat sodales. Nullam laoreet molestie arcu id vehicula. In placerat aliquet dui. Nulla sollicitudin leo in faucibus pulvinar. Fusce eget augue semper, imperdiet eros ut, placerat urna. Vivamus vel felis metus. Nulla tellus urna, lobortis id tellus at, blandit sodales enim. Proin eleifend quam mauris, at pellentesque nunc ornare at.
+Integer in convallis eros. Integer erat odio, rhoncus id mauris a, interdum euismod ante. Vestibulum mattis risus quis justo tempor, vitae lobortis mi fermentum. Mauris egestas purus vitae luctus sollicitudin. Suspendisse potenti. Quisque a ligula et erat laoreet imperdiet. Sed cursus mollis tempus. Nulla nec rutrum sapien. Sed congue tellus a semper posuere. Ut a mattis diam, vitae sollicitudin velit. Vestibulum interdum dolor ac turpis mollis, in tincidunt mauris accumsan. Sed nulla quam, lobortis id laoreet ac, interdum ac quam. Phasellus imperdiet egestas ullamcorper. Integer consequat urna nibh. Pellentesque eu fermentum nunc, a fermentum magna.
+    </string>
+
+
+    <string name="user_name"> Mateusz Oleszek </string>
+    <string name="user_mail"> mateusz.oleszek@student.put.poznan.pl</string>
+
+    <string name="drawer_menu_1"> Action 1 </string>
+    <string name="drawer_menu_2"> Action 2</string>
+    <string name="drawer_menu_3"> Action 3</string>
+
+    <string name="nav_open_drawer">Open navigation drawer</string>
+    <string name="nav_close_drawer">Close animation drawer</string>
+
+    <string name="main_tab_name">Recorded expressions</string>
+    <string name="stat_tab_name">Statistics</string>
+    <string name="fab_description">Add new expression</string>
+    <string name="original_expression_text">unknown phrase</string>
+    <string name="translation_text">translation</string>
+    <string name="unknow_phrase_text">Unknow Phrase</string>
+    <string name="shared_preferences">com.example.wordcapture.SHARED_PREFERENCES</string>
+    <string name="default_language_key">default_language</string>
+    <string name="default_language_message">Pick default language</string>
+    <string name="default_language_title">Language</string>
+
+</resources>

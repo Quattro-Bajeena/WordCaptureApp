@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar_main"
+        android:id="@+id/toolbar"
+        />
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.NewExpressionActivity"
+        android:orientation="vertical"
+        android:layout_margin="32dp"
+        >
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/unknow_phrase_text"
+            android:labelFor="@+id/original_expression"/>
+
+        <EditText
+            android:id="@+id/original_expression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text|textNoSuggestions"
+            android:layout_marginBottom="18dp"
+            android:importantForAutofill="no"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/translation_text"
+            android:labelFor="@+id/translated_expression"/>
+
+        <EditText
+            android:id="@+id/translated_expression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textAutoComplete"
+            android:layout_marginBottom="18dp"
+            android:importantForAutofill="no"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/languages_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/languages"
+                android:spinnerMode="dropdown"
+                />
+
+
+            <ImageButton
+                android:id="@+id/translate_button"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/g_translate" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            app:srcCompat="@drawable/add_a_photo"
+            />
+
+        <Button
+            android:id="@+id/add_expression_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="add phrase" />
+    </LinearLayout>
+
+</LinearLayout>

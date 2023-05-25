@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages">
+        <item>polish</item>
+        <item>japanese</item>
+        <item>german</item>
+    </string-array>
+
+    <array name="language_icons">
+        <item>@drawable/flag_of_poland</item>
+        <item>@drawable/flag_of_japan</item>
+        <item>@drawable/flag_of_germany</item>
+    </array>
+
+
+</resources>
