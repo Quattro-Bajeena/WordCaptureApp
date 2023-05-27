@@ -29,11 +29,14 @@
             android:id="@+id/add_expression_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="add phrase"
-            android:layout_margin="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="0dp"
             android:padding="10dp"
-            android:textSize="20sp"
-            android:layout_alignParentBottom="true"/>
+            android:text="add phrase"
+            android:textSize="20sp" />
     </RelativeLayout>
 
 </LinearLayout>

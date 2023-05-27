@@ -21,4 +21,11 @@
     <color name="ketchup">#E33030</color>
 
     <color name="grey">#AAAAAA</color>
+
+
+    <color name="orange_200">#FFAB91</color>
+    <color name="orange_500">#FF5722</color>
+    <color name="orange_700">#E64A19</color>
+    <color name="red_200">#EF9A9A</color>
+    <color name="red_700">#D32F2F</color>
 </resources>

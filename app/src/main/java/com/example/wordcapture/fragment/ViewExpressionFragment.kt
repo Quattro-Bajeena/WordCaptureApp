@@ -108,14 +108,15 @@ class ViewExpressionFragment : Fragment() {
 
     public fun getCurrentExpression():Expression?{
         val original = original_expression.text.toString()
-        if(original.isBlank()){
-            return null
-        }
         val translation = translated_expression.text.toString()
         val language = languages_spinner.selectedItem as String
         val date = Date()
-        val photoPath = currentPhotoPath
-        val thumbnailPath = currentThumbnailPath
+        val photoPath = currentPhotoPath ?: expression?.imagePath
+        val thumbnailPath = currentThumbnailPath ?: expression?.thumbnailPath
+
+        if(original.isBlank() && (photoPath == null || thumbnailPath == null)){
+            return null
+        }
 
         val newExpression = Expression(
             expressionId,
@@ -233,6 +234,7 @@ class ViewExpressionFragment : Fragment() {
         val translatedText = translation.translatedText
 
         translated_expression.setText(translatedText)
+        Toast.makeText(parentActivity, "Used google translate", Toast.LENGTH_SHORT).show()
     }
 
     private fun getTranslateService() : Translate{
@@ -272,7 +274,12 @@ class ViewExpressionFragment : Fragment() {
         val mapWithValues = mapOf(
             "japanese" to "ja",
             "polish" to "pl",
-            "german" to "de"
+            "german" to "de",
+            "spanish" to "es",
+            "french" to "fr",
+            "russian" to "ru",
+            "portuguese" to "pt-PT",
+            "mandarin" to "zh-CN"
         )
 
         private const val ARG_ID = "param0"

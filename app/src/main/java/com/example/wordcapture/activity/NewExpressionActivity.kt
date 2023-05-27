@@ -40,7 +40,7 @@ class NewExpressionActivity : AppCompatActivity() {
 
         if(newExpression == null){
             Snackbar
-                .make(new_expression_view, "Can't add new expression", Snackbar.LENGTH_LONG)
+                .make(new_expression_view, "Can't add new expression without unknown phrase or picture.", Snackbar.LENGTH_LONG)
                 .show()
             return
         }

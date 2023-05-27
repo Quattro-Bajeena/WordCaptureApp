@@ -9,7 +9,7 @@ import java.util.*
 data class Expression(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo val original: String,
-    @ColumnInfo val translation: String?,
+    @ColumnInfo val translation: String,
     @ColumnInfo val time: Date,
     @ColumnInfo val language: String,
     @ColumnInfo val imagePath: String?,

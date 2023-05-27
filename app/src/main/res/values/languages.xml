@@ -2,15 +2,21 @@
 <resources>
     <string-array name="languages">
         <item>polish</item>
-        <item>japanese</item>
+        <item>spanish</item>
         <item>german</item>
+        <item>french</item>
+        <item>russian</item>
+        <item>portuguese</item>
+        <item>mandarin</item>
+        <item>japanese</item>
+
     </string-array>
 
-    <array name="language_icons">
+<!--    <array name="language_icons">
         <item>@drawable/flag_of_poland</item>
         <item>@drawable/flag_of_japan</item>
         <item>@drawable/flag_of_germany</item>
-    </array>
+    </array>-->
 
 
 </resources>
